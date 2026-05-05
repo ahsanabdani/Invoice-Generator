@@ -1,0 +1,618 @@
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+/* Theme variables */
+
+:root {
+    --bg: #f3f0ea;
+    --card: #ffffff;
+    --navy: #1b2340;
+    --amber: #c4661d;
+    --amber-lt: #fdf0e6;
+    --amber-md: #e8905a;
+    --border: #e2ddd5;
+    --border2: #ede9e3;
+    --text: #1b2340;
+    --text2: #6b6574;
+    --text3: #b0abc0;
+    --green: #2e7d5a;
+    --red: #c0392b;
+    --shadow: 0 2px 16px rgba(27, 35, 64, .07), 0 1px 3px rgba(27, 35, 64, .04);
+    --r: 12px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    /* Subtle noise texture */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+header {
+    background: var(--navy);
+    padding: 0 40px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.h-icon {
+    font-size: 1.25rem;
+}
+
+header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.01em;
+}
+
+header h1 em {
+    color: var(--amber);
+    font-style: normal;
+}
+
+header .h-sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, .15);
+}
+
+header .h-stack {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, .35);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Amber accent bar under header */
+.header-accent {
+    height: 3px;
+    background: linear-gradient(90deg, var(--amber) 0%, var(--amber-md) 50%, transparent 100%);
+}
+
+/* ── Layout ───────────────────────────────────────────────────── */
+.wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+    display: grid;
+    grid-template-columns: 1fr 272px;
+    gap: 24px;
+    align-items: start;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right {
+    position: sticky;
+    top: 24px;
+}
+
+/* ── Cards ────────────────────────────────────────────────────── */
+.card {
+    background: var(--card);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border2);
+    overflow: hidden;
+}
+
+/* Amber left accent strip */
+.card::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, var(--amber) 0%, transparent 70%);
+}
+
+.ch {
+    padding: 13px 20px 11px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.ch-icon {
+    width: 26px;
+    height: 26px;
+    background: var(--amber-lt);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+}
+
+.ch h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+}
+
+.badge {
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--amber-lt);
+    color: var(--amber);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 1px 7px;
+    vertical-align: middle;
+}
+
+.cb {
+    padding: 20px;
+}
+
+/* ── Field Grid ───────────────────────────────────────────────── */
+.fg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.fg3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.fg1 {
+    grid-template-columns: 1fr;
+}
+
+.s2 {
+    grid-column: span 2;
+}
+
+.s3 {
+    grid-column: span 3;
+}
+
+.f {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text2);
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=date],
+input[type=number],
+textarea {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 11px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    color: var(--text);
+    background: #fff;
+    outline: none;
+    transition: border-color .18s, box-shadow .18s;
+    width: 100%;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(196, 102, 29, .09);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text3);
+}
+
+textarea {
+    resize: none;
+}
+
+/* number input: hide arrows */
+input[type=number]::-webkit-inner-spin-button {
+    opacity: .4;
+}
+
+/* % suffix wrapper */
+.pct {
+    position: relative;
+}
+
+.pct input {
+    padding-right: 28px;
+}
+
+.pct::after {
+    content: '%';
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: var(--text2);
+    pointer-events: none;
+}
+
+/* ── Items Table ──────────────────────────────────────────────── */
+.tbl {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tbl thead th {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text2);
+    padding: 7px 7px 9px;
+    border-bottom: 1.5px solid var(--border);
+    text-align: left;
+}
+
+.tbl thead th.r {
+    text-align: right;
+}
+
+.tbl thead th.del-col {
+    width: 30px;
+}
+
+.item-row td {
+    padding: 3px 4px;
+    border-bottom: 1px solid var(--border2);
+    vertical-align: middle;
+}
+
+.item-row:last-child td {
+    border-bottom: none;
+}
+
+.item-row input {
+    border: 1.5px solid transparent;
+    border-radius: 6px;
+    padding: 7px 8px;
+    font-size: 0.84rem;
+    background: transparent;
+    transition: border-color .15s, background .15s;
+}
+
+.item-row input:focus {
+    border-color: var(--amber);
+    background: #fffaf6;
+}
+
+.qty-in,
+.price-in {
+    text-align: right;
+}
+
+.amt {
+    text-align: right;
+    padding-right: 8px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--navy);
+    white-space: nowrap;
+    min-width: 80px;
+}
+
+.del-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text3);
+    font-size: 1rem;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color .15s, background .15s;
+    line-height: 1;
+}
+
+.del-btn:hover {
+    color: var(--red);
+    background: #fdf1f0;
+}
+
+.add-row-btn {
+    margin-top: 11px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: none;
+    border: 1.5px dashed var(--border);
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.79rem;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all .18s;
+}
+
+.add-row-btn:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: var(--amber-lt);
+}
+
+.add-row-btn svg {
+    flex-shrink: 0;
+}
+
+/* ── Summary (right card) ─────────────────────────────────────── */
+.sum-card {
+    background: var(--navy);
+    border-radius: var(--r);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(27, 35, 64, .22);
+}
+
+.sum-head {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.sum-head h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: .015em;
+}
+
+.inv-ref {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, .35);
+    letter-spacing: .1em;
+    font-family: monospace;
+}
+
+.sum-body {
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.sum-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+}
+
+.sl {
+    color: rgba(255, 255, 255, .5);
+}
+
+.sv {
+    color: #fff;
+    font-weight: 500;
+}
+
+.sv.disc {
+    color: #7ecba0;
+}
+
+.sum-hr {
+    height: 1px;
+    background: rgba(255, 255, 255, .1);
+    margin: 4px 0;
+}
+
+.sum-total {
+    padding: 0 20px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.st-label {
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .35);
+}
+
+.st-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1.1;
+}
+
+.sum-foot {
+    padding: 0 16px 16px;
+}
+
+/* ── Generate Button ──────────────────────────────────────────── */
+.gen-btn {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--amber);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+}
+
+.gen-btn:hover {
+    background: #d4771f;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(196, 102, 29, .45);
+}
+
+.gen-btn:active {
+    transform: none;
+}
+
+.gen-btn:disabled {
+    background: #564a3e;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.sp {
+    width: 13px;
+    height: 13px;
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .55s linear infinite;
+    display: none;
+    flex-shrink: 0;
+}
+
+.gen-btn.busy .sp {
+    display: block;
+}
+
+.gen-btn.busy .bl {
+    opacity: .7;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Animations ───────────────────────────────────────────────── */
+.card {
+    animation: fadeUp .35s ease both;
+}
+
+.card:nth-child(1) {
+    animation-delay: .05s;
+}
+
+.card:nth-child(2) {
+    animation-delay: .10s;
+}
+
+.card:nth-child(3) {
+    animation-delay: .15s;
+}
+
+.card:nth-child(4) {
+    animation-delay: .20s;
+}
+
+.card:nth-child(5) {
+    animation-delay: .25s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item-row {
+    animation: rowIn .18s ease both;
+}
+
+@keyframes rowIn {
+    from {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 700px) {
+    .wrap {
+        grid-template-columns: 1fr;
+        padding: 16px 14px 48px;
+        gap: 16px;
+    }
+
+    .right {
+        position: static;
+    }
+
+    .fg {
+        grid-template-columns: 1fr;
+    }
+
+    .fg3 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .s2,
+    .s3 {
+        grid-column: span 1;
+    }
+
+    header {
+        padding: 0 16px;
+    }
+
+    .h-sep,
+    .h-stack {
+        display: none;
+    }
+}
